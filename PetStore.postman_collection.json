@@ -1,0 +1,673 @@
+{
+	"info": {
+		"_postman_id": "c68c7ce3-ac0e-4e00-9025-b04147da1d00",
+		"name": "PetStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24549084"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var req = JSON.parse(request.data)\r",
+									"console.log(req.username)\r",
+									"pm.collectionVariables.set(\"username\", \"req.username\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"    pm.response.to.have.property(\"code\", 200).to.be.a(\"number\");\r",
+									"    pm.expect(pm.response).to.have.status(200)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Properties from body are correct\", function () {\r",
+									"    console.log(pm.response.json ())\r",
+									"    pm.expect(pm.response.json().code).to.be.a('number')\r",
+									"    pm.expect(pm.response.json().type).to.be.a('string')\r",
+									"    pm.expect(pm.response.text()).to.include('type');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 2,\r\n  \"username\": \"danielals\",\r\n  \"firstName\": \"Daniela\",\r\n  \"lastName\": \"Mercedes\",\r\n  \"email\": \"email@teste.com\",\r\n  \"password\": \"abc123\",\r\n  \"phone\": \"799999999\",\r\n  \"userStatus\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_environment}}/user",
+							"host": [
+								"{{base_url_environment}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 2,\r\n  \"username\": \"danielals\",\r\n  \"firstName\": \"Daniela\",\r\n  \"lastName\": \"Mercedes\",\r\n  \"email\": \"email@teste.com\",\r\n  \"password\": \"abc123\",\r\n  \"phone\": \"799999999\",\r\n  \"userStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_environment}}/user",
+									"host": [
+										"{{base_url_environment}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Nov 2022 18:51:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, api_key, Authorization"
+								},
+								{
+									"key": "Server",
+									"value": "Jetty(9.2.9.v20150224)"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"2\"\n}"
+						},
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 2,\r\n  \"username\": \"danielals\",\r\n  \"firstName\": \"Daniela\",\r\n  \"lastName\": \"Mercedes\",\r\n  \"email\": \"email@teste.com\",\r\n  \"password\": \"abc123\",\r\n  \"phone\": \"799999999\",\r\n  \"userStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_environment}}/user",
+									"host": [
+										"{{base_url_environment}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Nov 2022 19:20:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, api_key, Authorization"
+								},
+								{
+									"key": "Server",
+									"value": "Jetty(9.2.9.v20150224)"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"2\"\n}"
+						},
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 2,\r\n  \"username\": \"danielals\",\r\n  \"firstName\": \"Daniela\",\r\n  \"lastName\": \"Mercedes\",\r\n  \"email\": \"email@teste.com\",\r\n  \"password\": \"abc123\",\r\n  \"phone\": \"799999999\",\r\n  \"userStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_environment}}/user",
+									"host": [
+										"{{base_url_environment}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Nov 2022 19:52:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, api_key, Authorization"
+								},
+								{
+									"key": "Server",
+									"value": "Jetty(9.2.9.v20150224)"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"2\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    console.log(responseJson)\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.expect(responseJson).to.have.property('type')\r",
+									"    pm.response.to.have.header('Content-type', 'application/json')\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function(){\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"const schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"code\": {\"type\": \"string\"},\r",
+									"        \"type\": {\"type\": \"string\"},\r",
+									"        \"message\": {\"type\": \"string\"}\r",
+									"    },\r",
+									"    required: [\"code\", \"type\", \"message\"]\r",
+									"};\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url_environment}}/User/Login?username=daniela&password=abc123",
+							"host": [
+								"{{base_url_environment}}"
+							],
+							"path": [
+								"User",
+								"Login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "daniela"
+								},
+								{
+									"key": "password",
+									"value": "abc123"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_environment}}/User/Login?username=daniela&password=abc123",
+									"host": [
+										"{{base_url_environment}}"
+									],
+									"path": [
+										"User",
+										"Login"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "daniela"
+										},
+										{
+											"key": "password",
+											"value": "abc123"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Nov 2022 18:52:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/xml"
+								},
+								{
+									"key": "Content-Length",
+									"value": "212"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, api_key, Authorization"
+								},
+								{
+									"key": "Server",
+									"value": "Jetty(9.2.9.v20150224)"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<apiResponse>\n    <message>null for uri: http://petstore.swagger.io/v2/User/Login?username=daniela&amp;password=abc123</message>\n    <type>unknown</type>\n</apiResponse>"
+						}
+					]
+				},
+				{
+					"name": "Get by username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    console.log(responseJson)\r",
+									"    console.log(pm.response)\r",
+									"    pm.expect(pm.response).to.have.status(200)\r",
+									"    pm.expect(responseJson).to.have.property(\"phone\")\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    console.log(responseJson)\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.expect(responseJson).to.have.property(\"phone\")\r",
+									"    pm.response.to.have.header('Content-type', 'application/json')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_environment}}/user/{{username}}",
+							"host": [
+								"{{base_url_environment}}"
+							],
+							"path": [
+								"user",
+								"{{username}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get by username",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_environment}}/user/danielals",
+									"host": [
+										"{{base_url_environment}}"
+									],
+									"path": [
+										"user",
+										"danielals"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Nov 2022 19:01:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, api_key, Authorization"
+								},
+								{
+									"key": "Server",
+									"value": "Jetty(9.2.9.v20150224)"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"username\": \"danielals\",\n    \"firstName\": \"Daniela\",\n    \"lastName\": \"Mercedes\",\n    \"email\": \"email@teste.com\",\n    \"password\": \"abc123\",\n    \"phone\": \"799999999\",\n    \"userStatus\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete by username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.get(\"username\");\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function(){\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function(){\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Message return name of person deleted\", function(){\r",
+									"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"username\"))\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_environment}}/user/{{username}}",
+							"host": [
+								"{{base_url_environment}}"
+							],
+							"path": [
+								"user",
+								"{{username}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete by username",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url_environment}}/user/danielals",
+									"host": [
+										"{{base_url_environment}}"
+									],
+									"path": [
+										"user",
+										"danielals"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Nov 2022 19:03:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, DELETE, PUT"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, api_key, Authorization"
+								},
+								{
+									"key": "Server",
+									"value": "Jetty(9.2.9.v20150224)"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"danielals\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{api-key}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url_collection",
+			"value": "https://petstore.swagger.io/v2",
+			"type": "string"
+		},
+		{
+			"key": "api-key",
+			"value": "special-key",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "danielals"
+		}
+	]
+}
