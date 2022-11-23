@@ -22,6 +22,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main" />
+  </component>
   <component name="Git.Settings">
     <favorite-branches>
       <branch-storage>
